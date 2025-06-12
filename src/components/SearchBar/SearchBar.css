@@ -1,0 +1,210 @@
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    z-index: 5;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--border);
+    border-radius: 30px;
+    color: var(--text-primary);
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+.search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2);
+    transform: translateY(-1px);
+}
+
+.clear-button {
+    position: absolute;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.clear-button:hover {
+    color: var(--accent-color);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.suggestions-list {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin: 0;
+    padding: 0.5rem 0;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    list-style: none;
+    visibility: visible;
+}
+
+.suggestion-item {
+    padding: 0.9rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background-color: var(--bg-tertiary);
+    padding-left: 1.8rem;
+}
+
+.suggestion-item.highlighted,
+.suggestion-item:focus {
+    background-color: var(--bg-tertiary);
+    color: var(--accent);
+    outline: none;
+}
+
+/* Efecto de brillo al pasar el mouse */
+.suggestion-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.03) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.suggestion-item:hover::after {
+    opacity: 1;
+}
+
+/* Scrollbar personalizada */
+.suggestions-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 0 12px 12px 0;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Modo de alto contraste */
+@media (prefers-contrast: more) {
+    .search-input {
+        border: 2px solid #ffffff;
+        background-color: #000000;
+        color: #ffffff;
+    }
+    
+    .search-input::placeholder {
+        color: #b3b3b3;
+    }
+    
+    .suggestions-dropdown {
+        border: 2px solid #ffffff;
+        background-color: #000000;
+    }
+    
+    .suggestion-item {
+        border-bottom: 1px solid #ffffff;
+        color: #ffffff;
+    }
+    
+    .suggestion-item.highlighted,
+    .suggestion-item:focus,
+    .suggestion-item:hover {
+        background-color: #333333;
+        color: #4a90e2;
+        border-left: 4px solid #4a90e2;
+    }
+    
+    .search-container::before {
+        color: #ffffff;
+    }
+}
+
+/* Efecto de carga */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.loading-suggestion {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, 
+                var(--bg-secondary) 25%, 
+                var(--bg-tertiary) 50%, 
+                var(--bg-secondary) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    height: 20px;
+    margin: 0.5rem 1.5rem;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-container {
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .search-input {
+        padding: 0.9rem 1.2rem;
+        font-size: 1rem;
+    }
+    
+    .suggestion-item {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,223 @@
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Estructura principal */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  margin-top: 80px; /* Ajusta según la altura de tu navbar */
+}
+
+/* Estilos para enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Estilos para títulos en fondos oscuros */
+.dark-bg h1,
+.dark-bg h2,
+.dark-bg h3,
+.dark-bg h4,
+.dark-bg h5,
+.dark-bg h6,
+.dark-bg p,
+.dark-bg span,
+.dark-bg label,
+.dark-bg .text-light {
+  color: #ffffff !important; /* Blanco puro para mejor contraste */
+}
+
+.dark-bg .subtitle {
+  color: #f0f0f0 !important; /* Gris muy claro para subtítulos */
+  opacity: 0.9;
+}
+
+/* Estilos para botones */
+button {
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 3rem 0 0;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+}
+
+.footer-section {
+  padding: 0 1rem;
+}
+
+.footer-section h3 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #d2226e;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #bbb;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  display: block;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #d2226e;
+}
+
+.contact-info {
+  margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.contact-info svg {
+  margin-top: 0.2rem;
+  color: #d2226e;
+  min-width: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links a:hover {
+  color: #fff;
+  background: #d2226e;
+  transform: translateY(-3px);
+}
+
+.opening-hours p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.opening-hours span:first-child {
+  margin-right: 1rem;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: #1a1a1a;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .main-content {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .main-content {
+    margin-top: 60px;
+  }
+}
+
+/* Estilos globales para el tema oscuro */
+:root {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent: #4a90e2;
+  --accent-hover: #63a0e9;
+  --border: #3a3a3a;
+  --error: #cf6679;
+  --success: #4caf50;
+}

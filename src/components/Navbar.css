@@ -1,0 +1,178 @@
+/* Estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar principal */
+.navbar {
+  background-color: #000;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  z-index: 1002;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+/* Menú de navegación */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+  color: #d2226e;
+}
+
+/* Botón de reserva */
+.book-button {
+  background-color: #d2226e;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.book-button:hover {
+  background-color: #b01a5c;
+  transform: translateY(-2px);
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0;
+  color: white;
+}
+
+.menu-icon {
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover .menu-icon {
+  color: #d2226e;
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: right 0.3s ease-in-out;
+    padding: 5rem 2rem 2rem;
+    z-index: 1000;
+    margin: 0;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-links a {
+    display: block;
+    padding: 0.8rem 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .desktop-booking {
+    display: none;
+  }
+  
+  .mobile-booking {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .mobile-booking .book-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Estilos para escritorio */
+@media (min-width: 769px) {
+  .mobile-booking {
+    display: none;
+  }
+  
+  .desktop-booking {
+    display: inline-block;
+  }
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 480px) {
+  .nav-links {
+    width: 80%;
+  }
+  
+  .logo-img {
+    height: 35px;
+  }
+}

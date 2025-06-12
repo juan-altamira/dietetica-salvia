@@ -1,0 +1,187 @@
+.product-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent);
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+.product-info {
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    min-height: 48px;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+.product-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.product-price::before {
+    content: '$';
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.add-to-cart-btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: white;
+    border: none;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.add-to-cart-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--accent-hover), var(--accent));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.add-to-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.add-to-cart-btn:hover::before {
+    opacity: 1;
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0);
+}
+
+/* Efecto de brillo al pasar el mouse */
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.product-card:hover::after {
+    opacity: 1;
+}
+
+/* Efecto de pulso para productos en oferta */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(74, 144, 226, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+}
+
+.product-card.sale {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card.sale::after {
+    content: 'OFERTA';
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: var(--accent);
+    color: white;
+    padding: 5px 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+/* Modo de alto contraste */
+@media (prefers-contrast: more) {
+    .product-card {
+        border: 2px solid var(--text-primary);
+        background-color: #000000;
+    }
+    
+    .product-name {
+        color: #ffffff;
+        text-shadow: 0 0 2px #ffffff;
+    }
+    
+    .product-price {
+        color: #4a90e2;
+    }
+    
+    .add-to-cart-btn {
+        background: #000000;
+        border: 2px solid #ffffff;
+        color: #ffffff;
+    }
+    
+    .add-to-cart-btn:hover {
+        background: #ffffff;
+        color: #000000;
+    }
+}

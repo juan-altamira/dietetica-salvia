@@ -1,0 +1,151 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background-color: var(--bg-secondary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: -0.5px;
+}
+
+.navbar-brand:hover {
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.navbar-cart {
+    position: relative;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: 0.6rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    background-color: var(--bg-tertiary);
+}
+
+.navbar-cart:hover {
+    background-color: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: var(--accent);
+    color: white;
+    border-radius: 50%;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    min-width: 1.4rem;
+    height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--bg-secondary);
+}
+
+/* Efecto de brillo al pasar el mouse */
+.navbar-cart::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-cart:hover::after {
+    opacity: 1;
+}
+
+/* Efecto de pulso para el carrito cuando hay items */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.navbar-cart.has-items {
+    animation: pulse 1.5s infinite;
+}
+
+/* Transición suave para el contador */
+.cart-badge {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Efecto de elevación al hacer hover en el contenedor del carrito */
+.navbar-cart-container {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.navbar-cart-container:hover {
+    transform: translateY(-2px);
+}
+
+/* Mejoras de accesibilidad */
+.navbar-cart:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Modo de alto contraste */
+@media (prefers-contrast: more) {
+    .navbar {
+        border-bottom: 2px solid var(--text-primary);
+        background-color: #000000;
+    }
+    
+    .navbar-brand {
+        color: #ffffff;
+        text-shadow: 0 0 2px #ffffff;
+    }
+    
+    .navbar-cart {
+        color: #ffffff;
+        background-color: #333333;
+        border: 2px solid #ffffff;
+    }
+    
+    .navbar-cart:hover {
+        background-color: #ffffff;
+        color: #000000;
+    }
+    
+    .cart-badge {
+        background-color: #ff0000;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+    }
+}
