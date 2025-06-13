@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import './Cart.css';
+import { FaWhatsapp } from 'react-icons/fa';
+import { FaTelegramPlane } from 'react-icons/fa';
 
 const Cart = () => {
     const { cart, removeFromCart, clearCart } = useContext(CartContext);
@@ -29,9 +31,38 @@ const Cart = () => {
                     </div>
                     <div className="cart-summary">
                         <h2 className="cart-total">Total: ${totalPrice.toLocaleString('es-AR')}</h2>
-                        <button className="clear-cart-btn" onClick={clearCart}>
-                            Vaciar Carrito
-                        </button>
+                        <div className="cart-buttons">
+                            <button 
+                                className="telegram-btn" 
+                                onClick={() => {
+                                    const message = `¡Hola! Me gustaría hacer el siguiente pedido:%0A%0A${cart.map(item => 
+                                        `- ${item.name} x${item.quantity} ($${item.price.toLocaleString('es-AR')} c/u)`
+                                    ).join('%0A')}%0A%0ATotal: $${totalPrice.toLocaleString('es-AR')}`;
+                                    window.open(`https://t.me/share/url?url=&text=${message}`, '_blank');
+                                }}
+                            >
+                                <FaTelegramPlane className="telegram-icon" />
+                                Enviar pedido por Telegram
+                            </button>
+                            <button 
+                                className="whatsapp-btn" 
+                                onClick={() => {
+                                    const message = `¡Hola! Me gustaría hacer el siguiente pedido:%0A%0A${cart.map(item => 
+                                        `- ${item.name} x${item.quantity} ($${item.price.toLocaleString('es-AR')} c/u)`
+                                    ).join('%0A')}%0A%0ATotal: $${totalPrice.toLocaleString('es-AR')}`;
+                                    window.open(`https://wa.me/5491122334455?text=${message}`, '_blank');
+                                }}
+                            >
+                                <FaWhatsapp className="whatsapp-icon" />
+                                Enviar pedido por WhatsApp
+                            </button>
+                            <button 
+                                className="clear-cart-btn" 
+                                onClick={clearCart}
+                            >
+                                Vaciar Carrito
+                            </button>
+                        </div>
                     </div>
                 </>
             )}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import ProductCard from '../ProductCard/ProductCard';
 import { products } from '../../data/products';
@@ -11,6 +11,7 @@ const ProductList = ({ filteredProducts }) => {
     const { categoryId } = useParams();
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [currentCategory, setCurrentCategory] = useState('');
+    const productListRef = useRef(null);
 
     useEffect(() => {
         // Si hay productos filtrados (de búsqueda), usamos esos
@@ -39,10 +40,21 @@ const ProductList = ({ filteredProducts }) => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const paginatedProducts = displayedProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
+    const scrollToProductList = () => {
+        if (productListRef.current) {
+            productListRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     const handlePageChange = (page) => {
         setCurrentPage(page);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // El scroll se manejará en el efecto
     };
+
+    // Efecto para manejar el scroll cuando cambia la categoría o la página
+    useEffect(() => {
+        scrollToProductList();
+    }, [currentPage, categoryId, filteredProducts]);
 
     if (displayedProducts.length === 0) {
         return (
@@ -54,7 +66,7 @@ const ProductList = ({ filteredProducts }) => {
     }
 
     return (
-        <div className="product-list-container">
+        <div className="product-list-container" ref={productListRef}>
             {currentCategory && (
                 <h2 className="category-title">{currentCategory}</h2>
             )}

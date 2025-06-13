@@ -31,7 +31,7 @@ export const products = [
     },
     {
         "id": 6,
-        "name": "Harina de avena",
+        "name": "Harina de avena 100gr",
         "price": 1000,
         "category": "Harinas y premezclas"
     },
@@ -43,9 +43,9 @@ export const products = [
     },
     {
         "id": 8,
-        "name": "Harina de almendras sin cáscara",
+        "name": "Almendras sin cáscara 100gr",
         "price": 3000,
-        "category": "Harinas y premezclas"
+        "category": "Frutos Secos"
     },
     {
         "id": 9,
@@ -55,9 +55,9 @@ export const products = [
     },
     {
         "id": 10,
-        "name": "Harina de maní tostada",
+        "name": "Maní tostado sin sal 100gr",
         "price": 2000,
-        "category": "Harinas y premezclas"
+        "category": "Frutos Secos"
     },
     {
         "id": 11,
@@ -103,9 +103,9 @@ export const products = [
     },
     {
         "id": 18,
-        "name": "Granola Pasas de Uva y Almendras Granomax 1 kg",
-        "price": 14000,
-        "category": "Cereales y granolas"
+        "name": "Mix de frutos secos con pasas y almendras 100gr",
+        "price": 3000,
+        "category": "Frutos Secos"
     },
     {
         "id": 19,
@@ -127,9 +127,9 @@ export const products = [
     },
     {
         "id": 22,
-        "name": "Mix Europeo sin Maní",
+        "name": "Mix de frutos secos europeo 100gr",
         "price": 2100,
-        "category": "Cereales y granolas"
+        "category": "Frutos Secos"
     },
     {
         "id": 23,
@@ -211,7 +211,7 @@ export const products = [
     },
     {
         "id": 36,
-        "name": "Mix de Semillas Lino, Sésamo, Girasol y Chia",
+        "name": "Mix de Semillas 100gr Lino, Sésamo, Girasol y Chia",
         "price": 600,
         "category": "Legumbres y semillas"
     },
@@ -1042,5 +1042,35 @@ export const products = [
         "name": "Coco rallado",
         "price": 1400,
         "category": "Especias y condimentos"
+    },
+    {
+        "id": 1001,
+        "name": "Nueces peladas 100gr",
+        "price": 3500,
+        "category": "Frutos Secos"
+    },
+    {
+        "id": 1002,
+        "name": "Avellanas 100gr",
+        "price": 2800,
+        "category": "Frutos Secos"
+    },
+    {
+        "id": 1003,
+        "name": "Pistachos tostados 100gr",
+        "price": 3200,
+        "category": "Frutos Secos"
+    },
+    {
+        "id": 1004,
+        "name": "Mix energético con pasas y chocolate 100gr",
+        "price": 2500,
+        "category": "Frutos Secos"
+    },
+    {
+        "id": 1005,
+        "name": "Almendras tostadas con sal del Himalaya 100gr",
+        "price": 3200,
+        "category": "Frutos Secos"
     }
 ]

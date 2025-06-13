@@ -17,7 +17,7 @@ const SearchBar = ({ onSearch, onClear, onSuggestionClick, suggestions = [], pla
     const handleInputChange = (e) => {
         const value = e.target.value;
         setQuery(value);
-        onSearch(value);
+        onSearch(value); 
         setShowSuggestions(value.length > 1);
     };
 

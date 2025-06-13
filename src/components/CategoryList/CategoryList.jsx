@@ -6,7 +6,7 @@ const categories = [
   {
     id: 'harinas',
     name: 'Harinas y Premezclas',
-    image: 'https://images.unsplash.com/photo-1605517899800-9ccf8f0e6f0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    image: 'https://alatria.com/wp-content/uploads/Como-sustituir-la-harina-de-trigo-por-harina-sin-gluten.jpg',
   },
   {
     id: 'especias',
@@ -16,7 +16,7 @@ const categories = [
   {
     id: 'frutos-secos',
     name: 'Frutos Secos',
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80',
+    image: 'https://amazonical.com/wp-content/uploads/2021/04/Tipos-de-frutos-secos-90442081_s.jpg',
   },
   {
     id: 'legumbres',
@@ -26,22 +26,22 @@ const categories = [
   {
     id: 'bebidas',
     name: 'Bebidas',
-    image: 'https://images.unsplash.com/photo-1551024601-bec78aea704c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80',
+    image: 'https://www.somoselagua.com.ar/img/novedades/31.jpg',
   },
   {
     id: 'chocolates',
     name: 'Chocolates y Dulces',
-    image: 'https://images.unsplash.com/photo-1587131623029-d893263c1fc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    image: 'https://bucket.somosohlala.com.ar/s3fs-public/styles/internal_990/public/2024-06/2_1.png.webp?itok=lrEIdJX6',
   },
   {
     id: 'galletas',
     name: 'Galletas y Snacks',
-    image: 'https://images.unsplash.com/photo-1608190003443-86ab162a7192?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    image: 'https://content.cuerpomente.com/medio/2022/12/20/galletas-de-avena-y-platano_21865895_1280x720.jpg',
   },
   {
     id: 'suplementos',
     name: 'Suplementos',
-    image: 'https://images.unsplash.com/photo-1546069901-14a5b4e8640b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
+    image: 'https://www.infisport.com/media/amasty/blog/Creatina_1_6.jpg',
   },
 ];
 
