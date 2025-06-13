@@ -13,48 +13,44 @@ const ProductList = ({ filteredProducts }) => {
     const [currentCategory, setCurrentCategory] = useState('');
     const productListRef = useRef(null);
 
-    useEffect(() => {
-        // Si hay productos filtrados (de búsqueda), usamos esos
-        if (filteredProducts && filteredProducts.length > 0) {
-            setDisplayedProducts(filteredProducts);
-            setCurrentPage(1);
-            return;
-        }
+    // Detectar si es búsqueda
+    const isBusqueda = filteredProducts && filteredProducts.length > 0;
 
-        // Si hay un categoryId, filtramos por categoría
-        if (categoryId) {
+    useEffect(() => {
+        if (isBusqueda) {
+            setDisplayedProducts(filteredProducts);
+            setCurrentPage(1); // Siempre volver a la página 1 en búsqueda
+        } else if (categoryId) {
             const categoryName = categoryId.split('-').join(' ');
             const categoryProducts = products.filter(
                 product => product.category.toLowerCase().includes(categoryName)
             );
             setDisplayedProducts(categoryProducts);
             setCurrentCategory(categoryProducts[0]?.category || '');
+            setCurrentPage(1);
         } else {
-            // Si no hay ni búsqueda ni categoría, mostramos todos los productos
             setDisplayedProducts(products);
+            setCurrentPage(1);
         }
-        setCurrentPage(1);
+        // eslint-disable-next-line
     }, [categoryId, filteredProducts]);
 
     const totalPages = Math.ceil(displayedProducts.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const paginatedProducts = displayedProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
-    const scrollToProductList = () => {
-        if (productListRef.current) {
+    // Scroll solo si cambia la página o la categoría, pero no por búsqueda
+    useEffect(() => {
+        if (!isBusqueda && productListRef.current) {
             productListRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    };
+        // eslint-disable-next-line
+    }, [currentPage, categoryId]);
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
-        // El scroll se manejará en el efecto
+        // El scroll lo maneja el useEffect
     };
-
-    // Efecto para manejar el scroll cuando cambia la categoría o la página
-    useEffect(() => {
-        scrollToProductList();
-    }, [currentPage, categoryId, filteredProducts]);
 
     if (displayedProducts.length === 0) {
         return (
